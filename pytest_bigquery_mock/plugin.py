@@ -14,13 +14,6 @@ class FakeRowIterator:
         for row in self._rows:
             yield row
 
-    def to_dataframe(self):
-        df = pd.DataFrame(columns=list(self._rows[0].keys()))
-        for i, row in enumerate(self._rows):
-            df.loc[i] = row.values()
-
-        return df
-
 
 class FakeQuery:
     def __init__(self, row_iterator):
@@ -33,9 +26,6 @@ class FakeQuery:
 
     def result(self):
         return self.row_iterator
-
-    def to_dataframe(self):
-        return self.result().to_dataframe()
 
 
 @pytest.fixture
