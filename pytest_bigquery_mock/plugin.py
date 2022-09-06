@@ -1,4 +1,3 @@
-import pandas as pd
 import pytest
 from google.cloud.bigquery.table import Row
 
